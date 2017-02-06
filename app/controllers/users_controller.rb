@@ -7,8 +7,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to products_url, notice: "Signed up!"
+      flash[:notice] = "Signed up!"
+      redirect_to products_url
     else
+      flash.now[:error] = 'Sorry, try again!'
       render :new
     end
   end

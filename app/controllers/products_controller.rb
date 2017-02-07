@@ -5,6 +5,12 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+
+    # create an @review instance for form_for
+    if current_user
+      @review = @product.reviews.new
+    end
+
   end
 
   def new

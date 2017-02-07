@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(
-      comment: review_params[:review][:comment],
+      comment: params[:review][:comment],
       product_id: @product.id,
       user_id: current_user.id
     )
